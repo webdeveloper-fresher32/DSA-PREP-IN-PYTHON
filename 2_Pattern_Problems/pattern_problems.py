@@ -5,6 +5,44 @@
 # Each pattern will improve your loop understanding
 
 # ==========================================
+# UNIVERSAL FORMULAS FOR PATTERN PROBLEMS
+# ==========================================
+
+# TRIANGLE PATTERNS - Change inner loop range:
+# ─────────────────────────────────────────
+# Growing Triangle:   for j in range(i+1)        ← More each row (1, 2, 3, 4...)
+# Shrinking Triangle: for j in range(n-i)        ← Less each row (4, 3, 2, 1...)
+# Fixed/Square:       for j in range(n)          ← Same each row
+
+# PYRAMID PATTERNS - Spacing + Logic:
+# ─────────────────────────────────────
+# for i in range(1, n+1):
+#     # 1. Leading spaces
+#     print(" " * (n - i), end="")
+#     
+#     # 2. Left part (increasing)
+#     for j in range(...):
+#         print(..., end="")
+#     
+#     # 3. Right part (decreasing)
+#     for j in range(...):
+#         print(..., end="")
+#     
+#     print()  # New line after row
+
+# DIAMOND PATTERNS - Upper + Lower Half:
+# ───────────────────────────────────────
+# for i in range(1, n+1):        # Upper half: 1 to n
+#     (pyramid logic here)
+# for i in range(n-1, 0, -1):    # Lower half: n-1 to 1
+#     (same pyramid logic)
+
+# CHARACTER CONVERSION:
+# ─────────────────────
+# Numbers → Letters: chr(65 + j) = A, B, C... (65 = ASCII 'A')
+#                    chr(97 + j) = a, b, c... (97 = ASCII 'a')
+
+# ==========================================
 # LEVEL 1: BASIC PATTERNS (1 loop)
 # ==========================================
 
@@ -115,20 +153,6 @@ def pattern6(n):
 # * *
 # * * *
 # * * * *
-
-# For ANY triangle pattern, just change the INNER LOOP RANGE:
-
-# Growing:   range(i+1)           ← More each row
-# Shrinking: range(n-i)           ← Less each row
-# Fixed:     range(n)             ← Same each row (square)
-
-
-# formula 
-# for i in range(n):           # i = 0, 1, 2, 3
-#     for j in range(n):       # j = 0, 1, 2, 3
-#         print((i+j+1) * "*") # Prints many stars, wrong!
-
-
 def pattern7(n):
     for i in range(n):              # i = 0, 1, 2, 3 (row number)
         for j in range(i+1):        # j runs 1, 2, 3, 4 times (columns in each row)
@@ -180,7 +204,7 @@ def pattern10(n):
             print("*",end=" ")
         print()
 
-pattern10(4)
+# pattern10(4)
 
 
 # ==========================================
@@ -194,7 +218,15 @@ pattern10(4)
 #  ***
 # ****
 def pattern11(n):
-    pass
+    for i in range(n):
+        for j in range(n-i-1):
+            print(" ",end="")
+        for j in range(i+1):
+            print("*",end="")
+        print()
+
+    
+# pattern11(4)
 
 
 # PATTERN 12: Center Pyramid
@@ -204,7 +236,17 @@ def pattern11(n):
 #  *****
 # *******
 def pattern12(n):
-    pass
+    for i in range(n):
+        for j in range(n-i-1):
+            print(" ",end="")
+        for  j in range(i+1):
+            print("*",end="")
+        for j in range(i):
+            print("*",end="")
+        print()
+
+
+# pattern12(4)
 
 
 # PATTERN 13: Number Pyramid
@@ -214,7 +256,15 @@ def pattern12(n):
 #  12321
 # 1234321
 def pattern13(n):
-    pass
+    for i in range(1,n+1):
+        print(" "*(n-i),end="")
+        for j in range(1,i+1):
+            print(j,end="")
+        for j in range(i-1,0,-1):
+            print(j,end="")
+        print()
+
+# pattern13(4)
 
 
 # PATTERN 14: Reverse Pyramid
@@ -224,7 +274,15 @@ def pattern13(n):
 #   * *
 #    *
 def pattern14(n):
-    pass
+    for i in range(n):
+        for j in range(i):
+            print(" ",end="")
+        for j in range(n-i):
+            print("* ",end="")
+        print()
+
+
+# pattern14(4)
 
 
 # ==========================================
@@ -241,7 +299,22 @@ def pattern14(n):
 #   ***
 #    *
 def pattern15(n):
-    pass
+    for i in range(1,n+1):
+        print(" "*(n-i),end="")
+        for j in range(i):
+            print("*",end="")
+        for j in range(i-1,0,-1):
+            print("*",end="")
+        print()
+    for i in range(n-1,0,-1):
+        print(" "*(n-i),end="")
+        for j in range(i):
+            print("*",end="")
+        for j in range(i-1,0,-1):
+            print("*",end="")
+        print()
+
+# pattern15(4)
 
 
 # PATTERN 16: Hollow Diamond
@@ -254,7 +327,25 @@ def pattern15(n):
 #   * *
 #    *
 def pattern16(n):
-    pass
+    for i in range(1,n+1):
+        print(" "*(n-i),end="")
+        for j in range(1, 2 * i):
+            if j == 1 or j == 2 * i - 1:
+                print("*", end="")
+            else:
+                print(" ", end="")
+        print()
+    for i in range(n - 1, 0, -1):
+        print(" " * (n - i), end="")
+        
+        for j in range(1, 2 * i):
+            if j == 1 or j == 2 * i - 1:
+                print("*", end="")
+            else:
+                print(" ", end="")
+        print()
+
+# pattern16(4)
 
 
 # PATTERN 17: Number Diamond
@@ -267,7 +358,22 @@ def pattern16(n):
 #   212
 #    1
 def pattern17(n):
-    pass
+    for i in range(1, n + 1):
+        print(" " * (n - i), end="")
+        for j in range(i, 0, -1):
+            print(j, end="")
+        for j in range(2, i + 1):
+            print(j, end="")
+        print()
+    for i in range(n - 1, 0, -1):
+        print(" " * (n - i), end="")
+        for j in range(i, 0, -1):
+            print(j, end="")
+        for j in range(2, i + 1):
+            print(j, end="")
+        print()
+
+pattern17(4)
 
 
 # ==========================================
@@ -285,7 +391,31 @@ def pattern17(n):
 # **      **
 # *        *
 def pattern18(n):
-    pass
+    # Upper half
+    for i in range(1, n + 1):
+        # Left stars
+        for j in range(i):
+            print("*", end="")
+        # Middle spaces
+        for j in range(2 * (n - i)):
+            print(" ", end="")
+        # Right stars
+        for j in range(i):
+            print("*", end="")
+        print()
+    
+    # Lower half
+    for i in range(n, 0, -1):
+        # Left stars
+        for j in range(i):
+            print("*", end="")
+        # Middle spaces
+        for j in range(2 * (n - i)):
+            print(" ", end="")
+        # Right stars
+        for j in range(i):
+            print("*", end="")
+        print()
 
 
 # PATTERN 19: Alphabet Pattern
@@ -295,7 +425,11 @@ def pattern18(n):
 # A B C
 # A B C D
 def pattern19(n):
-    pass
+    for i in range(n):
+        for j in range(i + 1):
+            # chr(65) is 'A', add j to get A, B, C, etc.
+            print(chr(65 + j), end=" ")
+        print()
 
 
 # PATTERN 20: Multiplication Table Pattern
@@ -305,63 +439,10 @@ def pattern19(n):
 # 3 6 9
 # 4 8 12 16
 def pattern20(n):
-    pass
-
-
-# ==========================================
-# SOLUTIONS SECTION (Uncomment to see answers)
-# ==========================================
-
-# Uncomment below to see solutions gradually
-
-"""
-# PATTERN 1 SOLUTION:
-def pattern1_solution(n):
-    for i in range(n):
-        print('*')
-
-# PATTERN 4 SOLUTION:
-def pattern4_solution(n):
-    for i in range(n):
-        for j in range(n):
-            print('*', end=' ')
+    for i in range(1, n + 1):
+        for j in range(1, i + 1):
+            print(i * j, end=" ")
         print()
 
-# PATTERN 7 SOLUTION:
-def pattern7_solution(n):
-    for i in range(1, n+1):
-        for j in range(i):
-            print('*', end=' ')
-        print()
-
-# PATTERN 11 SOLUTION:
-def pattern11_solution(n):
-    for i in range(1, n+1):
-        spaces = ' ' * (n - i)
-        stars = '*' * i
-        print(spaces + stars)
-
-# PATTERN 15 SOLUTION:
-def pattern15_solution(n):
-    # Upper half
-    for i in range(1, n+1):
-        spaces = ' ' * (n - i)
-        stars = '*' * (2*i - 1)
-        print(spaces + stars)
-    # Lower half
-    for i in range(n-1, 0, -1):
-        spaces = ' ' * (n - i)
-        stars = '*' * (2*i - 1)
-        print(spaces + stars)
-"""
 
 
-# ==========================================
-# HOW TO USE THIS FILE:
-# ==========================================
-# 1. Start with PATTERN 1 and solve it
-# 2. Test your solution by calling the function
-# 3. Move to next pattern
-# 4. Try to solve without looking at solutions
-# 5. If stuck, uncomment solutions section to see answers
-# 6. After solving, try to modify patterns (different symbols, etc)
