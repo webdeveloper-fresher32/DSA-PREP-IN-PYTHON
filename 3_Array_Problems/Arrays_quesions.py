@@ -46,9 +46,12 @@ def minAndMax(arr):
 # Input:  [1, 3, 2, 4, 5]  →  Output: False
 
 def isSorted(arr):
-    pass
+    for x in arr:
+        if arr[x] < arr[x+1]: return True 
+        else:
+            return False
 
-# print(isSorted([1, 2, 3, 4, 5]))
+# print(isSorted([1, 2,3 , 4, 5]))
 
 
 # [E-04] -----------------------------------------------------------------------------------------------------------------------
@@ -56,9 +59,16 @@ def isSorted(arr):
 # Input:  [1, 2, 1, 3, 2, 1]  →  Output: {1: 3, 2: 2, 3: 1}
 
 def countFrequency(arr):
-    pass
+    newdict={}
+    for i in range(len(arr)):
+        if arr[i] in newdict:
+            newdict[arr[i]]+=1
+        else :
+            newdict[arr[i]]=1
+    return newdict
 
-# print(countFrequency([1, 2, 1, 3, 2, 1]))
+
+# print(countFrequency([4, 7, 2, 4, 9, 7, 2, 4, 5, 9, 1, 2, 7, 5, 4, 3, 2, 9, 8, 1, 5, 6, 3, 7, 2, 4, 6, 8, 9, 1]))
 
 
 # [E-05] -----------------------------------------------------------------------------------------------------------------------
@@ -66,7 +76,17 @@ def countFrequency(arr):
 # Input:  [12, 35, 1, 10, 34, 1]  →  Output: 34
 
 def secondLargest(arr):
-    pass
+    n = len(arr)-1
+    first=float("-inf")
+    secnd=float("-inf")
+    for i in range(n):
+        if arr[i] > first :
+            first=arr[i]
+        if arr[i] < first: 
+            secnd=arr[i]
+    return secnd
+
+
 
 # print(secondLargest([12, 35, 1, 10, 34, 1]))
 
@@ -76,7 +96,7 @@ def secondLargest(arr):
 # Input:  [1, 2, 3, 4, 5]  →  Output: [2, 3, 4, 5, 1]
 
 def leftRotateByOne(arr):
-    pass
+    return arr[1:]+arr[:1]
 
 # print(leftRotateByOne([1, 2, 3, 4, 5]))
 
@@ -86,7 +106,7 @@ def leftRotateByOne(arr):
 # Input:  [1, 2, 3, 4, 5], k=2  →  Output: [3, 4, 5, 1, 2]
 
 def leftRotateByK(arr, k):
-    pass
+    return arr[k:]+arr[:k]
 
 # print(leftRotateByK([1, 2, 3, 4, 5], 2))
 
@@ -96,7 +116,12 @@ def leftRotateByK(arr, k):
 # Input:  [4, 2, 7, 1, 9], target=7  →  Output: 2
 
 def linearSearch(arr, target):
-    pass
+    n=len(arr)-1
+    for i in range(n):
+        if target == arr[i]:
+            return i
+    return -1
+
 
 # print(linearSearch([4, 2, 7, 1, 9], 7))
 
@@ -106,17 +131,48 @@ def linearSearch(arr, target):
 # Input:  [1, 2, 4, 5, 6]  →  Output: 3
 
 def missingNumber(arr):
-    pass
+    n = len(arr) + 1  
+    total_sum = n * (n + 1) // 2
+    
+    cal_sum = sum(arr)
+    
+    return total_sum - cal_sum
 
 # print(missingNumber([1, 2, 4, 5, 6]))
 
 
 # [E-10] -----------------------------------------------------------------------------------------------------------------------
-# Find the single number — every element appears twice except one.
+# Find the single number — every element appears twice except one. ( need to use bit manipulation for this kind of probelms )
 # Input:  [4, 1, 2, 1, 2]  →  Output: 4
 
+# best solution 
+# | Approach | Time | Space  |
+# | -------- | ---- | ------ |
+# | HashMap  | O(n) | O(n)   |
+# | XOR      | O(n) | O(1) ✅ |
+
+# def singleNumber(arr):
+#     result = 0
+#     for num in arr:
+#         result ^= num
+#     return result
+
+# print(singleNumber([4, 1, 2, 1, 2]))  # Output: 4
+
+# explanation is
+# = 4 ^ (1 ^ 1) ^ (2 ^ 2)
+# = 4 ^ 0 ^ 0
+# = 4
+
 def singleNumber(arr):
-    pass
+    n=len(arr)
+    newdict={}
+    for i in range(n):
+        if arr[i] in newdict:
+            newdict[arr[i]]+=1
+        else:
+            newdict[arr[i]]=1
+    return [key for key,val in newdict.items() if val==1]
 
 # print(singleNumber([4, 1, 2, 1, 2]))
 
@@ -127,7 +183,12 @@ def singleNumber(arr):
 # Input:  [1, 2, 3, 4]  →  Output: False
 
 def containsDuplicate(arr):
-    pass
+    seen=set()
+    for x in arr:
+        if x in seen :
+            return True
+        seen.add(x)
+    return False
 
 # print(containsDuplicate([1, 2, 3, 1]))
 
@@ -139,7 +200,7 @@ def containsDuplicate(arr):
 def moveZeros(arr):
     pass
 
-# print(moveZeros([0, 1, 0, 3, 12]))
+print(moveZeros([0, 1, 0, 3, 12]))
 
 
 # [E-13] -----------------------------------------------------------------------------------------------------------------------
