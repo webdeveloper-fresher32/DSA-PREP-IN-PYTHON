@@ -198,9 +198,25 @@ def containsDuplicate(arr):
 # Input:  [0, 1, 0, 3, 12]  →  Output: [1, 3, 12, 0, 0]
 
 def moveZeros(arr):
-    pass
+    #  Brute force approach 
+    # newarr=[]
+    # for num in arr:
+    #     if num !=0 :
+    #         newarr.append(num)
+    # zero_count = len(arr)-len(newarr)
+    # for _ in range(zero_count):
+    #     newarr.append(0)
+    # return newarr
 
-print(moveZeros([0, 1, 0, 3, 12]))
+    #  two pointer approach 
+    x = 0 
+    for i in range(len(arr)):
+        if arr[i] != 0 :
+            arr[i],arr[x]=arr[x],arr[i]
+            x+=1
+    return arr
+
+# print(moveZeros([0, 1, 0, 3, 12]))
 
 
 # [E-13] -----------------------------------------------------------------------------------------------------------------------
@@ -208,9 +224,19 @@ print(moveZeros([0, 1, 0, 3, 12]))
 # Input:  [1, 1, 2, 2, 3]  →  Output: 3
 
 def removeDuplicatesSorted(arr):
-    pass
+    # brute force
+    # return len(set(arr))
+    n=len(arr)
 
-# print(removeDuplicatesSorted([1, 1, 2, 2, 3]))
+    fir = 0 
+
+    for j in range(1,n):
+        if arr[j] != arr[fir]:
+            fir+=1
+            arr[fir]=arr[j]
+    return arr[:fir+1].__len__()
+
+print(removeDuplicatesSorted([1, 1, 2, 2, 3]))
 
 
 # [E-14] -----------------------------------------------------------------------------------------------------------------------
