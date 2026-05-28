@@ -236,7 +236,7 @@ def removeDuplicatesSorted(arr):
             arr[fir]=arr[j]
     return arr[:fir+1].__len__()
 
-print(removeDuplicatesSorted([1, 1, 2, 2, 3]))
+# print(removeDuplicatesSorted([1, 1, 2, 2, 3]))
 
 
 # [E-14] -----------------------------------------------------------------------------------------------------------------------
@@ -245,9 +245,15 @@ print(removeDuplicatesSorted([1, 1, 2, 2, 3]))
 # Input:  [9, 9, 9]  →  Output: [1, 0, 0, 0]
 
 def plusOne(arr):
-    pass
+    for i in range(len(arr)-1,-1,-1):
+        if arr[i]< 9:
+            arr[i]+=1
+            return arr
+        arr[i]=0
+    return [1]+arr
 
-# print(plusOne([9, 9, 9]))
+
+print(plusOne([9, 9, 9]))
 
 
 # [E-15] -----------------------------------------------------------------------------------------------------------------------
@@ -354,7 +360,15 @@ def pairSumSorted(arr, target):
 # Input:  [3, 2, 4], target=6       →  Output: [1, 2]
 
 def twoSum(arr, target):
-    pass
+    newdict={}
+    for index,value in enumerate(arr):
+        x=target-value
+        if x in newdict:
+            print(newdict)
+            return [newdict[x],index]
+        newdict[value]=index
+    return 
+
 
 # print(twoSum([2, 7, 11, 15], 9))
 
