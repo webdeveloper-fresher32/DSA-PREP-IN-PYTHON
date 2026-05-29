@@ -16,9 +16,12 @@
 # Input:  a=5, b=10  →  Output: (10, 5)
 
 def swap(a, b):
-    pass
+    temp=a
+    a=b
+    b=temp
+    return a,b
 
-# print(swap(5, 10))
+# print(swap(5, 10))    
 
 
 # [E-02] -----------------------------------------------------------------------------------------------------------------------
@@ -29,9 +32,9 @@ def swap(a, b):
 # Input:  True     →  Output: "bool"
 
 def typeChecker(value):
-    pass
+    return type(value).__name__
 
-# print(typeChecker(42))
+print(typeChecker(42))
 # print(typeChecker(True))
 
 
@@ -41,7 +44,8 @@ def typeChecker(value):
 # Input:  100  →  Output: 212.0
 
 def celsiusToFahrenheit(celsius):
-    pass
+    F = (celsius * 9/5) + 32
+    return F
 
 # print(celsiusToFahrenheit(0))
 # print(celsiusToFahrenheit(100))
@@ -52,7 +56,7 @@ def celsiusToFahrenheit(celsius):
 # Input:  [0, 1, "", "hi", None, [], [1], False, True]  →  Output: [1, "hi", [1], True]
 
 def filterTruthy(values):
-    pass
+    return list(filter(bool, values))
 
 # print(filterTruthy([0, 1, "", "hi", None, [], [1], False, True]))
 
@@ -68,7 +72,10 @@ def filterTruthy(values):
 # Input:  "3.14"  →  Output: -1   (float string, not int)
 
 def safeParseInt(s):
-    pass
+    if type(s).__name__ == int: 
+        return int(s)
+    else :
+        return -1
 
 # print(safeParseInt("42"))
 # print(safeParseInt("abc"))
@@ -79,7 +86,10 @@ def safeParseInt(s):
 # Input:  7  →  Output: {"area": 153.94, "circumference": 43.98}
 
 def circleStats(radius):
-    pass
+     newdict={}
+     newdict["area"]=round(3.14 * (radius*radius),2)
+     newdict["circumference"]= round(2*3.14*radius,2)
+     return newdict
 
 # print(circleStats(7))
 
@@ -91,7 +101,7 @@ def circleStats(radius):
 # Input:  "1111"  →  Output: 15
 
 def binaryToDecimal(binaryStr):
-    pass
+    return int(binaryStr,2)
 
 # print(binaryToDecimal("1011"))
 # print(binaryToDecimal("1111"))
@@ -103,7 +113,13 @@ def binaryToDecimal(binaryStr):
 # Input:  7      →  Output: [7]
 
 def digitList(n):
-    pass
+    out=[]
+    diff=n
+    while diff > 0 :
+        res=diff % 10 
+        diff=diff//10
+        out.append(res)
+    return out
 
 # print(digitList(12345))
 
@@ -116,7 +132,21 @@ def digitList(n):
 # Note: check bool BEFORE int (bool is a subclass of int in Python)
 
 def categorize(values):
-    pass
+    newdict={}
+    categories=["ints","floats","strs","others"]
+    for cat in categories:
+        newdict[cat]=[]
+    for value in values:
+        if type(value).__name__=="int":
+            newdict["ints"].append(value)
+        elif type(value).__name__=="str":
+            newdict["strs"].append(value)
+        elif type(value).__name__=="float":
+            newdict["floats"].append(value)
+        else:
+            newdict["others"].append(value)
+    return newdict
+
 
 # print(categorize([1, 2.5, "hi", True, None, 3]))
 
@@ -131,41 +161,7 @@ def categorize(values):
 # Input:  0   →  Output: "0"
 
 def decimalToBinary(n):
-    pass
+    return bin(n)
 
 # print(decimalToBinary(11))
 # print(decimalToBinary(0))
-
-
-# [H-02] -----------------------------------------------------------------------------------------------------------------------
-# Variable scope reasoning. Predict and return results as a tuple.
-# x = 10
-# def foo():
-#     x = 20
-#     def bar():
-#         nonlocal x
-#         x += 5
-#     bar()
-#     return x
-# print(foo())   →  25  (inner x was 20, bar added 5)
-# print(x)       →  10  (outer x is unchanged)
-# Return (result_of_foo, outer_x_after_foo_called).
-
-def scopeDemo():
-    pass
-
-# print(scopeDemo())
-
-
-# [H-03] -----------------------------------------------------------------------------------------------------------------------
-# Given a float like 3.75, return its binary representation as a string "11.11".
-# Only handle the fractional part up to 8 binary places (stop if it repeats beyond that).
-# Input:  3.75   →  Output: "11.11"
-# Input:  0.5    →  Output: "0.1"
-# Input:  0.1    →  Output: "0.00011001"  (8 places max)
-
-def floatToBinary(n):
-    pass
-
-# print(floatToBinary(3.75))
-# print(floatToBinary(0.5))
