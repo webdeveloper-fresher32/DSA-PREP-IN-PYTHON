@@ -18,8 +18,10 @@
 # Input:  10  →  Output: 55
 
 def sumToN(n):
-    pass
-
+    out=0
+    for i in range(1,n+1):
+        out+=i
+    return out
 # print(sumToN(5))
 # print(sumToN(10))
 
@@ -30,7 +32,18 @@ def sumToN(n):
 # Input:  5  →  Output: ["1", "2", "Fizz", "4", "Buzz"]
 
 def fizzBuzz(n):
-    pass
+    out=[]
+    for i in range(1,n+1):
+        if i%3 == 0 and i % 5 == 0:
+            out.append("FizzBuzz")
+        elif i % 3 == 0:
+            out.append("Fizz")
+        elif i % 5 == 0:
+            out.append("Buzz")
+        else:
+            out.append(f"{i}")
+    return out
+
 
 # print(fizzBuzz(15))
 
@@ -40,18 +53,29 @@ def fizzBuzz(n):
 # Input:  [1, 2, 3, 4, 5, 6]  →  Output: 3
 
 def countEvens(nums):
-    pass
+    count=0
+    for num in nums:
+        if num % 2 == 0:
+            count+=1
+    return count
 
-# print(countEvens([1, 2, 3, 4, 5, 6]))
+
+# print(countEvens([1, 2, 3, 4, 5, 6,6,9,12]))
 
 
 # [E-04] -----------------------------------------------------------------------------------------------------------------------
 # Return the factorial of n using a loop (not recursion). 0! = 1.
 # Input:  5  →  Output: 120
 # Input:  0  →  Output: 1
+# 5 * 4 * 3 * 2 * 1 
 
 def factorial(n):
-    pass
+    # n * (n-1) * (n-2) .... 1 
+    out=1
+    for i in range(1,n+1):
+        out *= i
+    return out
+        
 
 # print(factorial(5))
 # print(factorial(0))
@@ -63,9 +87,16 @@ def factorial(n):
 # Input:  9999  →  36 → 9            →  Output: 9
 
 def digitRoot(n):
-    pass
+    while n >= 10 :
+        total=0
+        while n > 0 :
+            total+=n%10
+            n=n//10
+        n=total
+    return n
 
-# print(digitRoot(493))
+
+print(digitRoot(493))
 # print(digitRoot(9999))
 
 
