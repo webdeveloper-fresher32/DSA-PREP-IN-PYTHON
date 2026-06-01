@@ -96,7 +96,7 @@ def digitRoot(n):
     return n
 
 
-print(digitRoot(493))
+# print(digitRoot(493))
 # print(digitRoot(9999))
 
 
