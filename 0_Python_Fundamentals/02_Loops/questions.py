@@ -110,30 +110,54 @@ def digitRoot(n):
 # Given a list of pairs [[a,b], [c,d], ...], return a list of their sums.
 # Input:  [[1,2],[3,4],[5,6]]  →  Output: [3, 7, 11]
 
+def sumN(arr):
+    if not len(arr) :
+        return 0
+    sumNum=0
+    for i in range(len(arr)):
+        sumNum+=arr[i]
+    return sumNum
+
+
 def pairSums(pairs):
-    pass
+    finalList=[]
+    for i in range(len(pairs)):
+        finalList.append(sumN(pairs[i]))
+    return finalList
 
 # print(pairSums([[1,2],[3,4],[5,6]]))
 
 
 # [M-02] -----------------------------------------------------------------------------------------------------------------------
 # Return an n x n multiplication table as a 2D list.
-# n=3  →  [[1,2,3],[2,4,6],[3,6,9]]
+# n=3  →    [[1,2,3],
+#           [2,4,6],
+#           [3,6,9]]
+
+
 
 def multiplicationTable(n):
-    pass
+    finalList=[]
+    for i in range(1,n+1):
+        outerlist=[]
+        for j in range(1,n+1):
+            outerlist.append(i*j)
+        finalList.append(outerlist)
+    return finalList
 
 # print(multiplicationTable(3))
 
 
 # [M-03] -----------------------------------------------------------------------------------------------------------------------
 # Given n, return a spiral matrix of numbers 1 to n*n as a 2D list (clockwise spiral).
-# n=3  →  [[1,2,3],[8,9,4],[7,6,5]]
+# n=3  →    [[1,2,3],
+#           [8,9,4],
+#           [7,6,5]]
 
 def spiralMatrix(n):
     pass
 
-# print(spiralMatrix(3))
+print(spiralMatrix(3))
 
 
 # ----- WHILE LOOPS (3 problems) ----------------------------------------------------------------------------------------------
