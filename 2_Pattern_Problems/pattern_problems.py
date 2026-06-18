@@ -19,15 +19,15 @@
 # for i in range(1, n+1):
 #     # 1. Leading spaces
 #     print(" " * (n - i), end="")
-#     
+#
 #     # 2. Left part (increasing)
 #     for j in range(...):
 #         print(..., end="")
-#     
+#
 #     # 3. Right part (decreasing)
 #     for j in range(...):
 #         print(..., end="")
-#     
+#
 #     print()  # New line after row
 
 # DIAMOND PATTERNS - Upper + Lower Half:
@@ -53,8 +53,7 @@
 # *
 # *
 def pattern1(n):
-    for i in range(n):
-        print("*")
+    pass
 
 # pattern1(4)
 
@@ -66,8 +65,7 @@ def pattern1(n):
 # 3
 # 4
 def pattern2(n):
-    for  i in range(4):
-        print(i+1)
+    pass
 
 # pattern2(4)
 
@@ -79,8 +77,7 @@ def pattern2(n):
 # ****
 # ****
 def pattern3(n):
-    for i in range(n):
-        print("*"* n)
+    pass
 
 # pattern3(4)
 
@@ -104,10 +101,7 @@ def pattern3(n):
 
 
 def pattern4(n):
-    for i in range(n):
-        for j in range(n):
-            print("*" , end=" ")
-        print()
+    pass
 
 # pattern4(4)
 
@@ -119,10 +113,7 @@ def pattern4(n):
 # 1 2 3 4
 # 1 2 3 4
 def pattern5(n):
-    for i in range(n):
-        for j in range(n):
-            print(j+1,end=" ")
-        print()
+    pass
 
 # pattern5(4)
 
@@ -134,11 +125,7 @@ def pattern5(n):
 # 3 3 3 3
 # 4 4 4 4
 def pattern6(n):
-    for i in range(n):
-        for j in range(n):
-            print(i+1,end=" ")
-        print()
-
+    pass
 
 # pattern6(4)
 
@@ -154,10 +141,7 @@ def pattern6(n):
 # * * *
 # * * * *
 def pattern7(n):
-    for i in range(n):              # i = 0, 1, 2, 3 (row number)
-        for j in range(i+1):        # j runs 1, 2, 3, 4 times (columns in each row)
-            print("*", end=" ")     # Print star with space
-        print()                     # Move to next line after row complete
+    pass
 
 # pattern7(4)
 
@@ -169,10 +153,7 @@ def pattern7(n):
 # 1 2 3
 # 1 2 3 4
 def pattern8(n):
-    for i in range(n):
-        for j in range(i+1):
-            print((i+j+1),end=" ")
-        print()
+    pass
 
 # pattern8(4)
 
@@ -184,10 +165,7 @@ def pattern8(n):
 # 4 5 6
 # 7 8 9 10
 def pattern9(n):
-    for i in range(n):
-        for j in range(i+1):
-            print((i+1+j),end =" ")
-        print()
+    pass
 
 # pattern9(4)
 
@@ -199,10 +177,7 @@ def pattern9(n):
 # * *
 # *
 def pattern10(n):
-    for i in range(n):
-        for j in range(n-i):
-            print("*",end=" ")
-        print()
+    pass
 
 # pattern10(4)
 
@@ -218,14 +193,8 @@ def pattern10(n):
 #  ***
 # ****
 def pattern11(n):
-    for i in range(n):
-        for j in range(n-i-1):
-            print(" ",end="")
-        for j in range(i+1):
-            print("*",end="")
-        print()
+    pass
 
-    
 # pattern11(4)
 
 
@@ -236,15 +205,7 @@ def pattern11(n):
 #  *****
 # *******
 def pattern12(n):
-    for i in range(n):
-        for j in range(n-i-1):
-            print(" ",end="")
-        for  j in range(i+1):
-            print("*",end="")
-        for j in range(i):
-            print("*",end="")
-        print()
-
+    pass
 
 # pattern12(4)
 
@@ -256,13 +217,7 @@ def pattern12(n):
 #  12321
 # 1234321
 def pattern13(n):
-    for i in range(1,n+1):
-        print(" "*(n-i),end="")
-        for j in range(1,i+1):
-            print(j,end="")
-        for j in range(i-1,0,-1):
-            print(j,end="")
-        print()
+    pass
 
 # pattern13(4)
 
@@ -274,13 +229,7 @@ def pattern13(n):
 #   * *
 #    *
 def pattern14(n):
-    for i in range(n):
-        for j in range(i):
-            print(" ",end="")
-        for j in range(n-i):
-            print("* ",end="")
-        print()
-
+    pass
 
 # pattern14(4)
 
@@ -299,20 +248,7 @@ def pattern14(n):
 #   ***
 #    *
 def pattern15(n):
-    for i in range(1,n+1):
-        print(" "*(n-i),end="")
-        for j in range(i):
-            print("*",end="")
-        for j in range(i-1,0,-1):
-            print("*",end="")
-        print()
-    for i in range(n-1,0,-1):
-        print(" "*(n-i),end="")
-        for j in range(i):
-            print("*",end="")
-        for j in range(i-1,0,-1):
-            print("*",end="")
-        print()
+    pass
 
 # pattern15(4)
 
@@ -327,23 +263,7 @@ def pattern15(n):
 #   * *
 #    *
 def pattern16(n):
-    for i in range(1,n+1):
-        print(" "*(n-i),end="")
-        for j in range(1, 2 * i):
-            if j == 1 or j == 2 * i - 1:
-                print("*", end="")
-            else:
-                print(" ", end="")
-        print()
-    for i in range(n - 1, 0, -1):
-        print(" " * (n - i), end="")
-        
-        for j in range(1, 2 * i):
-            if j == 1 or j == 2 * i - 1:
-                print("*", end="")
-            else:
-                print(" ", end="")
-        print()
+    pass
 
 # pattern16(4)
 
@@ -358,22 +278,9 @@ def pattern16(n):
 #   212
 #    1
 def pattern17(n):
-    for i in range(1, n + 1):
-        print(" " * (n - i), end="")
-        for j in range(i, 0, -1):
-            print(j, end="")
-        for j in range(2, i + 1):
-            print(j, end="")
-        print()
-    for i in range(n - 1, 0, -1):
-        print(" " * (n - i), end="")
-        for j in range(i, 0, -1):
-            print(j, end="")
-        for j in range(2, i + 1):
-            print(j, end="")
-        print()
+    pass
 
-pattern17(4)
+# pattern17(4)
 
 
 # ==========================================
@@ -391,31 +298,9 @@ pattern17(4)
 # **      **
 # *        *
 def pattern18(n):
-    # Upper half
-    for i in range(1, n + 1):
-        # Left stars
-        for j in range(i):
-            print("*", end="")
-        # Middle spaces
-        for j in range(2 * (n - i)):
-            print(" ", end="")
-        # Right stars
-        for j in range(i):
-            print("*", end="")
-        print()
-    
-    # Lower half
-    for i in range(n, 0, -1):
-        # Left stars
-        for j in range(i):
-            print("*", end="")
-        # Middle spaces
-        for j in range(2 * (n - i)):
-            print(" ", end="")
-        # Right stars
-        for j in range(i):
-            print("*", end="")
-        print()
+    pass
+
+# pattern18(4)
 
 
 # PATTERN 19: Alphabet Pattern
@@ -425,11 +310,9 @@ def pattern18(n):
 # A B C
 # A B C D
 def pattern19(n):
-    for i in range(n):
-        for j in range(i + 1):
-            # chr(65) is 'A', add j to get A, B, C, etc.
-            print(chr(65 + j), end=" ")
-        print()
+    pass
+
+# pattern19(4)
 
 
 # PATTERN 20: Multiplication Table Pattern
@@ -439,10 +322,6 @@ def pattern19(n):
 # 3 6 9
 # 4 8 12 16
 def pattern20(n):
-    for i in range(1, n + 1):
-        for j in range(1, i + 1):
-            print(i * j, end=" ")
-        print()
+    pass
 
-
-
+# pattern20(4)

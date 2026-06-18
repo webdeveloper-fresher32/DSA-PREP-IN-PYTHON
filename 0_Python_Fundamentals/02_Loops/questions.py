@@ -18,10 +18,8 @@
 # Input:  10  →  Output: 55
 
 def sumToN(n):
-    out=0
-    for i in range(1,n+1):
-        out+=i
-    return out
+    pass
+
 # print(sumToN(5))
 # print(sumToN(10))
 
@@ -32,18 +30,7 @@ def sumToN(n):
 # Input:  5  →  Output: ["1", "2", "Fizz", "4", "Buzz"]
 
 def fizzBuzz(n):
-    out=[]
-    for i in range(1,n+1):
-        if i%3 == 0 and i % 5 == 0:
-            out.append("FizzBuzz")
-        elif i % 3 == 0:
-            out.append("Fizz")
-        elif i % 5 == 0:
-            out.append("Buzz")
-        else:
-            out.append(f"{i}")
-    return out
-
+    pass
 
 # print(fizzBuzz(15))
 
@@ -53,12 +40,7 @@ def fizzBuzz(n):
 # Input:  [1, 2, 3, 4, 5, 6]  →  Output: 3
 
 def countEvens(nums):
-    count=0
-    for num in nums:
-        if num % 2 == 0:
-            count+=1
-    return count
-
+    pass
 
 # print(countEvens([1, 2, 3, 4, 5, 6,6,9,12]))
 
@@ -67,15 +49,9 @@ def countEvens(nums):
 # Return the factorial of n using a loop (not recursion). 0! = 1.
 # Input:  5  →  Output: 120
 # Input:  0  →  Output: 1
-# 5 * 4 * 3 * 2 * 1 
 
 def factorial(n):
-    # n * (n-1) * (n-2) .... 1 
-    out=1
-    for i in range(1,n+1):
-        out *= i
-    return out
-        
+    pass
 
 # print(factorial(5))
 # print(factorial(0))
@@ -87,14 +63,7 @@ def factorial(n):
 # Input:  9999  →  36 → 9            →  Output: 9
 
 def digitRoot(n):
-    while n >= 10 :
-        total=0
-        while n > 0 :
-            total+=n%10
-            n=n//10
-        n=total
-    return n
-
+    pass
 
 # print(digitRoot(493))
 # print(digitRoot(9999))
@@ -111,19 +80,11 @@ def digitRoot(n):
 # Input:  [[1,2],[3,4],[5,6]]  →  Output: [3, 7, 11]
 
 def sumN(arr):
-    if not len(arr) :
-        return 0
-    sumNum=0
-    for i in range(len(arr)):
-        sumNum+=arr[i]
-    return sumNum
+    pass
 
 
 def pairSums(pairs):
-    finalList=[]
-    for i in range(len(pairs)):
-        finalList.append(sumN(pairs[i]))
-    return finalList
+    pass
 
 # print(pairSums([[1,2],[3,4],[5,6]]))
 
@@ -134,16 +95,8 @@ def pairSums(pairs):
 #           [2,4,6],
 #           [3,6,9]]
 
-
-
 def multiplicationTable(n):
-    finalList=[]
-    for i in range(1,n+1):
-        outerlist=[]
-        for j in range(1,n+1):
-            outerlist.append(i*j)
-        finalList.append(outerlist)
-    return finalList
+    pass
 
 # print(multiplicationTable(3))
 
@@ -157,7 +110,7 @@ def multiplicationTable(n):
 def spiralMatrix(n):
     pass
 
-print(spiralMatrix(3))
+# print(spiralMatrix(3))
 
 
 # ----- WHILE LOOPS (3 problems) ----------------------------------------------------------------------------------------------

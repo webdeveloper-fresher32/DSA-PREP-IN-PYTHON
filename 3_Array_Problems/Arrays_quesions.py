@@ -16,12 +16,7 @@
 # Input:  [1, 4, 3, 2, 6, 5]  →  Output: [5, 6, 2, 3, 4, 1]
 
 def reverseArray(arr):
-    left, right = 0, len(arr) - 1
-    while left < right:
-        arr[left], arr[right] = arr[right], arr[left]
-        left += 1
-        right -= 1
-    return arr
+    pass
 
 # print(reverseArray([1, 4, 3, 2, 6, 5]))
 
@@ -31,11 +26,7 @@ def reverseArray(arr):
 # Input:  [3, 5, 4, 1, 9]  →  Output: [1, 9]
 
 def minAndMax(arr):
-    mini, maxi = arr[0], arr[0]
-    for x in arr:
-        if x < mini: mini = x
-        if x > maxi: maxi = x
-    return [mini, maxi]
+    pass
 
 # print(minAndMax([3, 5, 4, 1, 9]))
 
@@ -46,10 +37,7 @@ def minAndMax(arr):
 # Input:  [1, 3, 2, 4, 5]  →  Output: False
 
 def isSorted(arr):
-    for x in arr:
-        if arr[x] < arr[x+1]: return True 
-        else:
-            return False
+    pass
 
 # print(isSorted([1, 2,3 , 4, 5]))
 
@@ -59,14 +47,7 @@ def isSorted(arr):
 # Input:  [1, 2, 1, 3, 2, 1]  →  Output: {1: 3, 2: 2, 3: 1}
 
 def countFrequency(arr):
-    newdict={}
-    for i in range(len(arr)):
-        if arr[i] in newdict:
-            newdict[arr[i]]+=1
-        else :
-            newdict[arr[i]]=1
-    return newdict
-
+    pass
 
 # print(countFrequency([4, 7, 2, 4, 9, 7, 2, 4, 5, 9, 1, 2, 7, 5, 4, 3, 2, 9, 8, 1, 5, 6, 3, 7, 2, 4, 6, 8, 9, 1]))
 
@@ -76,17 +57,7 @@ def countFrequency(arr):
 # Input:  [12, 35, 1, 10, 34, 1]  →  Output: 34
 
 def secondLargest(arr):
-    n = len(arr)-1
-    first=float("-inf")
-    secnd=float("-inf")
-    for i in range(n):
-        if arr[i] > first :
-            first=arr[i]
-        if arr[i] < first: 
-            secnd=arr[i]
-    return secnd
-
-
+    pass
 
 # print(secondLargest([12, 35, 1, 10, 34, 1]))
 
@@ -96,7 +67,7 @@ def secondLargest(arr):
 # Input:  [1, 2, 3, 4, 5]  →  Output: [2, 3, 4, 5, 1]
 
 def leftRotateByOne(arr):
-    return arr[1:]+arr[:1]
+    pass
 
 # print(leftRotateByOne([1, 2, 3, 4, 5]))
 
@@ -106,7 +77,7 @@ def leftRotateByOne(arr):
 # Input:  [1, 2, 3, 4, 5], k=2  →  Output: [3, 4, 5, 1, 2]
 
 def leftRotateByK(arr, k):
-    return arr[k:]+arr[:k]
+    pass
 
 # print(leftRotateByK([1, 2, 3, 4, 5], 2))
 
@@ -116,12 +87,7 @@ def leftRotateByK(arr, k):
 # Input:  [4, 2, 7, 1, 9], target=7  →  Output: 2
 
 def linearSearch(arr, target):
-    n=len(arr)-1
-    for i in range(n):
-        if target == arr[i]:
-            return i
-    return -1
-
+    pass
 
 # print(linearSearch([4, 2, 7, 1, 9], 7))
 
@@ -131,48 +97,18 @@ def linearSearch(arr, target):
 # Input:  [1, 2, 4, 5, 6]  →  Output: 3
 
 def missingNumber(arr):
-    n = len(arr) + 1  
-    total_sum = n * (n + 1) // 2
-    
-    cal_sum = sum(arr)
-    
-    return total_sum - cal_sum
+    pass
 
 # print(missingNumber([1, 2, 4, 5, 6]))
 
 
 # [E-10] -----------------------------------------------------------------------------------------------------------------------
-# Find the single number — every element appears twice except one. ( need to use bit manipulation for this kind of probelms )
+# Find the single number — every element appears twice except one.
 # Input:  [4, 1, 2, 1, 2]  →  Output: 4
-
-# best solution 
-# | Approach | Time | Space  |
-# | -------- | ---- | ------ |
-# | HashMap  | O(n) | O(n)   |
-# | XOR      | O(n) | O(1) ✅ |
-
-# def singleNumber(arr):
-#     result = 0
-#     for num in arr:
-#         result ^= num
-#     return result
-
-# print(singleNumber([4, 1, 2, 1, 2]))  # Output: 4
-
-# explanation is
-# = 4 ^ (1 ^ 1) ^ (2 ^ 2)
-# = 4 ^ 0 ^ 0
-# = 4
+# Hint: XOR approach is O(n) time O(1) space
 
 def singleNumber(arr):
-    n=len(arr)
-    newdict={}
-    for i in range(n):
-        if arr[i] in newdict:
-            newdict[arr[i]]+=1
-        else:
-            newdict[arr[i]]=1
-    return [key for key,val in newdict.items() if val==1]
+    pass
 
 # print(singleNumber([4, 1, 2, 1, 2]))
 
@@ -183,12 +119,7 @@ def singleNumber(arr):
 # Input:  [1, 2, 3, 4]  →  Output: False
 
 def containsDuplicate(arr):
-    seen=set()
-    for x in arr:
-        if x in seen :
-            return True
-        seen.add(x)
-    return False
+    pass
 
 # print(containsDuplicate([1, 2, 3, 1]))
 
@@ -198,23 +129,7 @@ def containsDuplicate(arr):
 # Input:  [0, 1, 0, 3, 12]  →  Output: [1, 3, 12, 0, 0]
 
 def moveZeros(arr):
-    #  Brute force approach 
-    # newarr=[]
-    # for num in arr:
-    #     if num !=0 :
-    #         newarr.append(num)
-    # zero_count = len(arr)-len(newarr)
-    # for _ in range(zero_count):
-    #     newarr.append(0)
-    # return newarr
-
-    #  two pointer approach 
-    x = 0 
-    for i in range(len(arr)):
-        if arr[i] != 0 :
-            arr[i],arr[x]=arr[x],arr[i]
-            x+=1
-    return arr
+    pass
 
 # print(moveZeros([0, 1, 0, 3, 12]))
 
@@ -224,17 +139,7 @@ def moveZeros(arr):
 # Input:  [1, 1, 2, 2, 3]  →  Output: 3
 
 def removeDuplicatesSorted(arr):
-    # brute force
-    # return len(set(arr))
-    n=len(arr)
-
-    fir = 0 
-
-    for j in range(1,n):
-        if arr[j] != arr[fir]:
-            fir+=1
-            arr[fir]=arr[j]
-    return arr[:fir+1].__len__()
+    pass
 
 # print(removeDuplicatesSorted([1, 1, 2, 2, 3]))
 
@@ -245,15 +150,9 @@ def removeDuplicatesSorted(arr):
 # Input:  [9, 9, 9]  →  Output: [1, 0, 0, 0]
 
 def plusOne(arr):
-    for i in range(len(arr)-1,-1,-1):
-        if arr[i]< 9:
-            arr[i]+=1
-            return arr
-        arr[i]=0
-    return [1]+arr
+    pass
 
-
-print(plusOne([9, 9, 9]))
+# print(plusOne([9, 9, 9]))
 
 
 # [E-15] -----------------------------------------------------------------------------------------------------------------------
@@ -360,15 +259,7 @@ def pairSumSorted(arr, target):
 # Input:  [3, 2, 4], target=6       →  Output: [1, 2]
 
 def twoSum(arr, target):
-    newdict={}
-    for index,value in enumerate(arr):
-        x=target-value
-        if x in newdict:
-            print(newdict)
-            return [newdict[x],index]
-        newdict[value]=index
-    return 
-
+    pass
 
 # print(twoSum([2, 7, 11, 15], 9))
 

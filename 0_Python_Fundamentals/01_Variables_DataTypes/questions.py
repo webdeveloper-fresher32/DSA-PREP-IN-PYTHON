@@ -16,12 +16,9 @@
 # Input:  a=5, b=10  →  Output: (10, 5)
 
 def swap(a, b):
-    temp=a
-    a=b
-    b=temp
-    return a,b
+    pass
 
-# print(swap(5, 10))    
+# print(swap(5, 10))
 
 
 # [E-02] -----------------------------------------------------------------------------------------------------------------------
@@ -32,9 +29,9 @@ def swap(a, b):
 # Input:  True     →  Output: "bool"
 
 def typeChecker(value):
-    return type(value).__name__
+    pass
 
-print(typeChecker(42))
+# print(typeChecker(42))
 # print(typeChecker(True))
 
 
@@ -44,8 +41,7 @@ print(typeChecker(42))
 # Input:  100  →  Output: 212.0
 
 def celsiusToFahrenheit(celsius):
-    F = (celsius * 9/5) + 32
-    return F
+    pass
 
 # print(celsiusToFahrenheit(0))
 # print(celsiusToFahrenheit(100))
@@ -56,7 +52,7 @@ def celsiusToFahrenheit(celsius):
 # Input:  [0, 1, "", "hi", None, [], [1], False, True]  →  Output: [1, "hi", [1], True]
 
 def filterTruthy(values):
-    return list(filter(bool, values))
+    pass
 
 # print(filterTruthy([0, 1, "", "hi", None, [], [1], False, True]))
 
@@ -72,10 +68,7 @@ def filterTruthy(values):
 # Input:  "3.14"  →  Output: -1   (float string, not int)
 
 def safeParseInt(s):
-    if type(s).__name__ == int: 
-        return int(s)
-    else :
-        return -1
+    pass
 
 # print(safeParseInt("42"))
 # print(safeParseInt("abc"))
@@ -86,10 +79,7 @@ def safeParseInt(s):
 # Input:  7  →  Output: {"area": 153.94, "circumference": 43.98}
 
 def circleStats(radius):
-     newdict={}
-     newdict["area"]=round(3.14 * (radius*radius),2)
-     newdict["circumference"]= round(2*3.14*radius,2)
-     return newdict
+    pass
 
 # print(circleStats(7))
 
@@ -101,7 +91,7 @@ def circleStats(radius):
 # Input:  "1111"  →  Output: 15
 
 def binaryToDecimal(binaryStr):
-    return int(binaryStr,2)
+    pass
 
 # print(binaryToDecimal("1011"))
 # print(binaryToDecimal("1111"))
@@ -113,13 +103,7 @@ def binaryToDecimal(binaryStr):
 # Input:  7      →  Output: [7]
 
 def digitList(n):
-    out=[]
-    diff=n
-    while diff > 0 :
-        res=diff % 10 
-        diff=diff//10
-        out.append(res)
-    return out
+    pass
 
 # print(digitList(12345))
 
@@ -132,21 +116,7 @@ def digitList(n):
 # Note: check bool BEFORE int (bool is a subclass of int in Python)
 
 def categorize(values):
-    newdict={}
-    categories=["ints","floats","strs","others"]
-    for cat in categories:
-        newdict[cat]=[]
-    for value in values:
-        if type(value).__name__=="int":
-            newdict["ints"].append(value)
-        elif type(value).__name__=="str":
-            newdict["strs"].append(value)
-        elif type(value).__name__=="float":
-            newdict["floats"].append(value)
-        else:
-            newdict["others"].append(value)
-    return newdict
-
+    pass
 
 # print(categorize([1, 2.5, "hi", True, None, 3]))
 
@@ -161,7 +131,7 @@ def categorize(values):
 # Input:  0   →  Output: "0"
 
 def decimalToBinary(n):
-    return bin(n)
+    pass
 
 # print(decimalToBinary(11))
 # print(decimalToBinary(0))
