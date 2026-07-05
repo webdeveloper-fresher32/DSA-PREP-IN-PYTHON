@@ -18,9 +18,12 @@
 # Input:  "Hannah"      →  Output: "hannaH"
 
 def reverseString(s):
-    pass
+    revStr=""
+    for i in range(len(s)-1,-1,-1):
+        revStr+=s[i]
+    return revStr
 
-# print(reverseString("hello"))
+# print(reverseString("Hannah"))
 
 
 # [E-02] -----------------------------------------------------------------------------------------------------------------------
@@ -28,9 +31,27 @@ def reverseString(s):
 # Input:  "A man, a plan, a canal: Panama"  →  Output: True
 # Input:  "race a car"                      →  Output: False
 
-def isPalindrome(s):
-    pass
+def isPalindrome(s:str):
+    # cleaned=""
+    # for ch in s:
+    #     if ch.isalnum():
+    #         cleaned+=ch.lower()
+    #     return cleaned==cleaned[::-1]
 
+    first=0
+    last=len(s)-1
+    while first < last:
+        print(s[first],s[last])
+        while not s[first].isalnum():
+            first+=1
+        while not s[last].isalnum():
+            last-=1
+        if s[first].lower()!=s[last].lower():
+            return False
+        first+=1
+        last-=1
+    return True
+# print(isPalindrome("Hello"))
 # print(isPalindrome("A man, a plan, a canal: Panama"))
 
 
@@ -39,7 +60,12 @@ def isPalindrome(s):
 # Input:  "hello world"  →  Output: 3
 
 def countVowels(s):
-    pass
+    vowels=["a","e","i","o","u"]
+    count=0
+    for ch in s:
+        if ch.lower() in vowels:
+            count+=1
+    return count
 
 # print(countVowels("hello world"))
 
@@ -50,7 +76,7 @@ def countVowels(s):
 # Input:  "rat", "car"          →  Output: False
 
 def isAnagram(s, t):
-    pass
+    return sorted(s)==sorted(t)
 
 # print(isAnagram("anagram", "nagaram"))
 
@@ -61,7 +87,16 @@ def isAnagram(s, t):
 # Input:  "aabb"      →  Output: -1
 
 def firstUniqChar(s):
-    pass
+    hasele={}
+    for ch in s:
+        if ch in hasele:
+            hasele[ch]+=1
+        else :
+            hasele[ch]=1
+    
+    for index,ch in enumerate(s):
+        if ch in hasele and hasele[ch] == 1:
+            return index
 
 # print(firstUniqChar("leetcode"))
 
@@ -70,10 +105,11 @@ def firstUniqChar(s):
 # Count occurrences of a character in a string.
 # Input:  "hello", ch='l'  →  Output: 2
 
-def countOccurrences(s, ch):
-    pass
+def countOccurrences(s, g):
+   return s.count(g)
 
 # print(countOccurrences("hello", 'l'))
+# print(countOccurrences("mississippi", 's'))
 
 
 # [E-07] -----------------------------------------------------------------------------------------------------------------------
@@ -81,29 +117,49 @@ def countOccurrences(s, ch):
 # Input:  "the sky is blue"   →  Output: "blue is sky the"
 # Input:  "  hello world  "   →  Output: "world hello"
 
-def reverseWords(s):
-    pass
+def reverseWords(s:str):
+    newstr = s.split(" ")[::-1]
+    return " ".join(newstr)
+
 
 # print(reverseWords("the sky is blue"))
+# print(reverseWords("  hello world  " ))
 
 
 # [E-08] -----------------------------------------------------------------------------------------------------------------------
 # Remove duplicate characters from a string, keeping first occurrence.
 # Input:  "geeksforgeeks"  →  Output: "geksfor"
 
-def removeDuplicateChars(s):
-    pass
-
+def removeDuplicateChars(s:str):
+    newstr=""
+    seen=set()
+    n=len(s)
+    for i in range(n):
+       if s[i] in seen:
+           continue
+       else :
+          seen.add(s[i])
+          newstr+=s[i]
+    return newstr
+           
+  
 # print(removeDuplicateChars("geeksforgeeks"))
 
-
-# [E-09] -----------------------------------------------------------------------------------------------------------------------
+# ==========================================Revision needed =============================================
+# [E-09] ----------------------------------------------------------------------------------------------------------------------- ( REVISON NEEDED )
 # Longest common prefix among a list of strings.
 # Input:  ["flower","flow","flight"]  →  Output: "fl"
 # Input:  ["dog","racecar","car"]     →  Output: ""
 
-def longestCommonPrefix(strs):
-    pass
+def longestCommonPrefix(s:list[str]):
+    base=s[0]
+    res=""
+    for i in range(0,len(base)):
+        for word in s[1:]:
+            if i == len(word) or word[i] != base[i]:
+                return res
+        res+=base[i]
+    return res
 
 # print(longestCommonPrefix(["flower","flow","flight"]))
 
@@ -113,8 +169,17 @@ def longestCommonPrefix(strs):
 # Input:  "abcde", "cdeab"  →  Output: True
 # Input:  "abcde", "abced"  →  Output: False
 
-def isRotation(s, t):
-    pass
+def isRotation(s:str, t:str):
+    n=len(s)
+    i=0
+    while i  < n:
+        ch = s[:1]
+        secnd = s[1:]+ch
+        if secnd == t :
+            return True 
+        s=secnd
+        i+=1
+    return False
 
 # print(isRotation("abcde", "cdeab"))
 
@@ -136,29 +201,43 @@ def myAtoi(s):
 # Input:  "12345"   →  Output: True
 # Input:  "123a5"   →  Output: False
 
-def isAllDigits(s):
-    pass
+def isAllDigits(s:str):
+    for i in range(len(s)):
+        if not s[i].isdigit():
+            return False
+    return True
 
 # print(isAllDigits("12345"))
+# print(isAllDigits("123a5"))
 
 
 # [E-13] -----------------------------------------------------------------------------------------------------------------------
 # Count the number of words in a string.
 # Input:  "  hello world  "  →  Output: 2
 
-def countWords(s):
-    pass
+def countWords(s:str):
+    return len(s.split())
 
-# print(countWords("  hello world  "))
+# print(countWords("hello    world"))
 
-
+# ==========================================Revision needed =============================================
 # [E-14] -----------------------------------------------------------------------------------------------------------------------
 # Check if a string is a subsequence of another.
 # Input:  s="abc", t="ahbgdc"  →  Output: True
 # Input:  s="axc", t="ahbgdc"  →  Output: False
 
 def isSubsequence(s, t):
-    pass
+    i=0
+    j=0
+    while j < len(t):
+        if i < len(s) and s[i]==t[j]:
+                i+=1
+                if i == len(s):
+                    return True
+        j+=1
+    return False
+
+        
 
 # print(isSubsequence("abc", "ahbgdc"))
 
@@ -168,9 +247,17 @@ def isSubsequence(s, t):
 # Input:  "hello", k=3  →  Output: "khoor"
 
 def caesarCipher(s, k):
-    pass
+    newstr = ""
 
-# print(caesarCipher("hello", 3))
+    for ch in s:
+        position = ord(ch) - ord('a')   # Convert 'a'-'z' to 0-25
+        shifted = (position + k) % 26   # Shift and wrap around
+        newstr += chr(shifted + ord('a'))  # Convert back to character
+
+    return newstr
+
+# print(caesarCipher("hello", 3))   # khoor
+# print(caesarCipher("xyz", 3))     # abc
 
 
 # [E-16] -----------------------------------------------------------------------------------------------------------------------
@@ -180,9 +267,28 @@ def caesarCipher(s, k):
 # Input:  "([)]"     →  Output: False
 
 def isValidParentheses(s):
-    pass
+    isvalid={
+        "(":")",
+        "[":"]",
+        "{":"}"
+    }
+    stack:list[str]=[]
+    for ch in s:
+        if ch in isvalid:
+            stack.append(ch)
+        else :
+            if len(stack) == 0:
+                return False
+            top = stack[-1]
+            if isvalid[top] == ch:
+                stack.pop()
+            else:
+                return False
+    return len(stack)==0
+
 
 # print(isValidParentheses("()[]{}"))
+# print(isValidParentheses("{[()]}"))
 
 
 # [E-17] -----------------------------------------------------------------------------------------------------------------------
@@ -223,7 +329,7 @@ def canConstruct(s, t):
 def lengthOfLongestSubstring(s):
     pass
 
-# print(lengthOfLongestSubstring("abcabcbb"))
+print(lengthOfLongestSubstring("abcabcbb"))
 
 
 # [M-02] -----------------------------------------------------------------------------------------------------------------------
