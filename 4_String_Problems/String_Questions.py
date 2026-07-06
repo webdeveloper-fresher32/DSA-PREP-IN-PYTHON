@@ -327,10 +327,19 @@ def canConstruct(s, t):
 # Input:  "pwwkew"    →  Output: 3  ("wke")
 
 def lengthOfLongestSubstring(s):
-    pass
+    left=0
+    maxi=0
+    seen={}
+    for right in range(len(s)):
+        if s[right] in seen:
+            left=max(left,seen[s[right]]+1)
+        seen[s[right]]=right
+        maxi=max(maxi,right-left+1)
+    return maxi
 
-print(lengthOfLongestSubstring("abcabcbb"))
 
+# print(lengthOfLongestSubstring("abcabcbb"))
+ 
 
 # [M-02] -----------------------------------------------------------------------------------------------------------------------
 # Longest substring with at most k distinct characters.
@@ -338,9 +347,24 @@ print(lengthOfLongestSubstring("abcabcbb"))
 # Input:  "aa", k=1     →  Output: 2
 
 def longestSubstringKDistinct(s, k):
-    pass
+    left=0
+    seen={}
+    maxi=0
+    for right in range(len(s)):
+        if s[right] in seen:
+            seen[s[right]]+=1
+        else:
+            seen[s[right]]=1
+        while len(seen) > k :
+            seen[s[left]]-=1
+            if seen[s[left]] == 0 :
+                seen.pop(s[left])
+            left+=1
+        maxi=max(maxi,right-left+1)
+    return maxi
 
 # print(longestSubstringKDistinct("eceba", 2))
+print(longestSubstringKDistinct("aa", 1))
 
 
 # [M-03] -----------------------------------------------------------------------------------------------------------------------
