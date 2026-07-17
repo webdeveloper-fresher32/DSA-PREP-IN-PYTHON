@@ -364,7 +364,7 @@ def longestSubstringKDistinct(s, k):
     return maxi
 
 # print(longestSubstringKDistinct("eceba", 2))
-print(longestSubstringKDistinct("aa", 1))
+# print(longestSubstringKDistinct("aa", 1))
 
 
 # [M-03] -----------------------------------------------------------------------------------------------------------------------
